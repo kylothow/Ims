@@ -36,9 +36,7 @@ plugins {
 
 android {
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(36)
     }
     minSdk {
         version = release(33)
@@ -53,4 +51,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 rootProject.name = "Ims"
-include(":app", ":stub")
+include(":app")

@@ -5,8 +5,8 @@ plugins {
 android {
     namespace = "io.github.vvb2060.ims"
     defaultConfig {
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
     }
     buildTypes {
         release {
@@ -20,6 +20,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+    }
+    buildFeatures {
+        buildConfig = true
     }
     packaging {
         resources {
@@ -35,7 +38,6 @@ android {
 }
 
 dependencies {
-    compileOnly(projects.stub)
     implementation(libs.shizuku.provider)
     implementation(libs.shizuku.api)
     implementation(libs.hiddenapibypass)

@@ -1,16 +1,19 @@
 package io.github.vvb2060.ims;
 
+import android.app.ActivityManager;
+import android.app.IActivityManager;
+import android.app.UiAutomationConnection;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.telephony.SubscriptionManager;
-
-import com.android.internal.telephony.ITelephony;
+import android.os.Bundle;
+import android.os.ServiceManager;
+import android.util.Log;
 
 import org.lsposed.hiddenapibypass.LSPass;
 
 import rikka.shizuku.Shizuku;
 import rikka.shizuku.ShizukuBinderWrapper;
-import rikka.shizuku.SystemServiceHelper;
 
 public class ShizukuProvider extends rikka.shizuku.ShizukuProvider {
 
@@ -19,18 +22,22 @@ public class ShizukuProvider extends rikka.shizuku.ShizukuProvider {
         LSPass.setHiddenApiExemptions("");
         Shizuku.addBinderReceivedListener(() -> {
             if (Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED) {
-                var subId = SubscriptionManager.getDefaultVoiceSubscriptionId();
-                showVoLTE(subId);
+                startInstrument(getContext());
             }
         });
         return super.onCreate();
     }
 
-    private static void showVoLTE(int subId) {
-        var binder = SystemServiceHelper.getSystemService(Context.TELEPHONY_SERVICE);
-        var phone = ITelephony.Stub.asInterface(new ShizukuBinderWrapper(binder));
-        var value = phone.getImsProvisioningInt(subId, 68);
-        if (value == 1) return;
-        phone.setImsProvisioningInt(subId, 68, 1);
+    private static void startInstrument(Context context) {
+        try {
+            var binder = ServiceManager.getService(Context.ACTIVITY_SERVICE);
+            var am = IActivityManager.Stub.asInterface(new ShizukuBinderWrapper(binder));
+            var name = new ComponentName(context, PrivilegedProcess.class);
+            var flags = ActivityManager.INSTR_FLAG_NO_RESTART;
+            var connection = new UiAutomationConnection();
+            am.startInstrumentation(name, null, flags, new Bundle(), null, connection, 0, null);
+        } catch (Exception e) {
+            Log.e(ShizukuProvider.class.getSimpleName(), Log.getStackTraceString(e));
+        }
     }
 }
