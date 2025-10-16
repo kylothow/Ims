@@ -37,7 +37,7 @@ public class PrivilegedProcess extends Instrumentation {
                 var bundle = cm.getConfigForSubId(subId, "vvb2060_config_version");
                 if (bundle.getInt("vvb2060_config_version", 0) != BuildConfig.VERSION_CODE) {
                     values.putInt("vvb2060_config_version", BuildConfig.VERSION_CODE);
-                    cm.overrideConfig(subId, values, true);
+                    cm.overrideConfig(subId, values);
                 }
             }
         } finally {
