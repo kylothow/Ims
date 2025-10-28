@@ -50,5 +50,5 @@ android {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
-rootProject.name = "Ims"
+rootProject.name = "MyIMS"
 include(":app")

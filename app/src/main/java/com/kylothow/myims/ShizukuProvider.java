@@ -1,4 +1,4 @@
-package io.github.vvb2060.ims;
+package com.kylothow.myims;
 
 import android.app.ActivityManager;
 import android.app.IActivityManager;

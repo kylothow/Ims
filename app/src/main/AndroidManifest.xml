@@ -7,7 +7,7 @@
         android:targetPackage="${applicationId}" />
 
     <application
-        android:label="Ims"
+        android:label="MyIMS"
         android:theme="@android:style/Theme.DeviceDefault.DayNight"
         tools:ignore="MissingApplicationIcon">
 

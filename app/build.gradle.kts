@@ -3,10 +3,10 @@ plugins {
 }
 
 android {
-    namespace = "io.github.vvb2060.ims"
+    namespace = "com.kylothow.myims"
     defaultConfig {
-        versionCode = 4
-        versionName = "2.2"
+        versionCode = 1
+        versionName = "2.2-1"
     }
     buildTypes {
         release {
