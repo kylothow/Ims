@@ -55,8 +55,7 @@ public class PrivilegedProcess extends Instrumentation {
         bundle.putBoolean(CarrierConfigManager.KEY_SHOW_4G_FOR_LTE_DATA_ICON_BOOL, true);
         // 5G Settings
         bundle.putIntArray(CarrierConfigManager.KEY_CARRIER_NR_AVAILABILITIES_INT_ARRAY,
-                new int[]{CarrierConfigManager.CARRIER_NR_AVAILABILITY_NSA,
-                        CarrierConfigManager.CARRIER_NR_AVAILABILITY_SA});
+                new int[]{CarrierConfigManager.CARRIER_NR_AVAILABILITY_NSA});
         return bundle;
     }
 }

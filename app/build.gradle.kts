@@ -5,8 +5,8 @@ plugins {
 android {
     namespace = "com.kylothow.myims"
     defaultConfig {
-        versionCode = 2
-        versionName = "2.2-2"
+        versionCode = 3
+        versionName = "2.2-3"
     }
     buildTypes {
         release {
