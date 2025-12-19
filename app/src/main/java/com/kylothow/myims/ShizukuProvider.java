@@ -1,6 +1,6 @@
 package com.kylothow.myims;
 
-import static io.github.vvb2060.ims.PrivilegedProcess.TAG;
+import static com.kylothow.myims.PrivilegedProcess.TAG;
 
 import android.app.ActivityManager;
 import android.app.IActivityManager;
