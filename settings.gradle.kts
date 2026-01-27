@@ -11,8 +11,8 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
-        id("com.android.application") version "8.13.2"
-        id("com.android.library") version "8.13.2"
+        id("com.android.application") version "9.0.0"
+        id("com.android.library") version "9.0.0"
     }
 }
 
@@ -31,7 +31,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.android.settings") version "8.13.2"
+    id("com.android.settings") version "9.0.0"
 }
 
 android {
