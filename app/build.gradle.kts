@@ -4,10 +4,10 @@ plugins {
 
 android {
     enableKotlin = false
-    namespace = "io.github.vvb2060.ims"
+    namespace = "com.kylothow.myims"
     defaultConfig {
-        versionCode = 6
-        versionName = "3.1"
+        versionCode = 5
+        versionName = "3.1-1"
     }
     buildTypes {
         release {
